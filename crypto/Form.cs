@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
 using System.Text;
+using System.Windows.Forms;
 
 namespace crypto
 {
@@ -63,5 +65,55 @@ namespace crypto
             }
             txtDecrypted.Text = ByteConverter.GetString(decryptedText);
         }
+
+        private void encryptFileButton_Click(object sender, EventArgs e)
+        {
+            if (openFileDialogEncrypt.ShowDialog() == DialogResult.Cancel)
+            {
+                return;
+            }
+            string filename = openFileDialogEncrypt.FileName;
+            string fileText = System.IO.File.ReadAllText(filename);
+
+            byte[] plainText = ByteConverter.GetBytes(fileText);
+            byte[] encryptedFile = { 0 };
+            if (rsaActive)
+            {
+                encryptedFile = crypto.RSAencryption(plainText, crypto.RSA.ExportParameters(false), false);
+            }
+            else if (md5Active)
+            {
+                char[] key = txtPrivateKey.Text.ToCharArray();
+                encryptedFile = crypto.MD5encryption(plainText, key);
+            }
+            string encrypted = System.Text.Encoding.UTF8.GetString(encryptedFile);
+            File.WriteAllText("D:\\projects\\VS19 projects\\cryptography\\crypto\\crypto\\encrypted.txt", encrypted);
+        }
+
+        private void decryptFileButton_Click(object sender, EventArgs e)
+        {
+            if (openFileDialogEncrypt.ShowDialog() == DialogResult.Cancel)
+            {
+                return;
+            }
+            string filename = openFileDialogEncrypt.FileName;
+            string fileText = System.IO.File.ReadAllText(filename);
+
+            byte[] plainText = ByteConverter.GetBytes(fileText);
+            byte[] decryptedFile = { 0 };
+            if (rsaActive)
+            {
+                decryptedFile = crypto.RSAdecryption(plainText, crypto.RSA.ExportParameters(true), false);
+            }
+            else if (md5Active)
+            {
+                char[] key = txtPrivateKey.Text.ToCharArray();
+                decryptedFile = crypto.MD5decryption(plainText, key);
+            }
+            string decrypted = System.Text.Encoding.UTF8.GetString(decryptedFile);
+            File.WriteAllText("D:\\projects\\VS19 projects\\cryptography\\crypto\\crypto\\decrypted.txt", decrypted);
+        }
     }
 }
+
+

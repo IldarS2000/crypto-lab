@@ -42,6 +42,10 @@ namespace crypto
             this.currAlgorithmLabel = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtPrivateKey = new System.Windows.Forms.TextBox();
+            this.encryptFileButton = new System.Windows.Forms.Button();
+            this.decryptFileButton = new System.Windows.Forms.Button();
+            this.openFileDialogEncrypt = new System.Windows.Forms.OpenFileDialog();
+            this.openFileDialogDecrypt = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // txtForEncryption
@@ -168,11 +172,43 @@ namespace crypto
             this.txtPrivateKey.Size = new System.Drawing.Size(554, 65);
             this.txtPrivateKey.TabIndex = 15;
             // 
+            // encryptFileButton
+            // 
+            this.encryptFileButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.encryptFileButton.Location = new System.Drawing.Point(712, 106);
+            this.encryptFileButton.Name = "encryptFileButton";
+            this.encryptFileButton.Size = new System.Drawing.Size(116, 65);
+            this.encryptFileButton.TabIndex = 17;
+            this.encryptFileButton.Text = "Encrypt File";
+            this.encryptFileButton.UseVisualStyleBackColor = true;
+            this.encryptFileButton.Click += new System.EventHandler(this.encryptFileButton_Click);
+            // 
+            // decryptFileButton
+            // 
+            this.decryptFileButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.decryptFileButton.Location = new System.Drawing.Point(712, 301);
+            this.decryptFileButton.Name = "decryptFileButton";
+            this.decryptFileButton.Size = new System.Drawing.Size(116, 65);
+            this.decryptFileButton.TabIndex = 18;
+            this.decryptFileButton.Text = "Decrypt File";
+            this.decryptFileButton.UseVisualStyleBackColor = true;
+            this.decryptFileButton.Click += new System.EventHandler(this.decryptFileButton_Click);
+            // 
+            // openFileDialogEncrypt
+            // 
+            this.openFileDialogEncrypt.FileName = "openFileDialogEncrypt";
+            // 
+            // openFileDialogDecrypt
+            // 
+            this.openFileDialogDecrypt.FileName = "openFileDialogDecrypt";
+            // 
             // Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(822, 513);
+            this.ClientSize = new System.Drawing.Size(881, 513);
+            this.Controls.Add(this.decryptFileButton);
+            this.Controls.Add(this.encryptFileButton);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtPrivateKey);
             this.Controls.Add(this.currAlgorithmLabel);
@@ -208,6 +244,10 @@ namespace crypto
         private System.Windows.Forms.Label currAlgorithmLabel;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtPrivateKey;
+        private System.Windows.Forms.Button encryptFileButton;
+        private System.Windows.Forms.Button decryptFileButton;
+        private System.Windows.Forms.OpenFileDialog openFileDialogEncrypt;
+        private System.Windows.Forms.OpenFileDialog openFileDialogDecrypt;
     }
 }
 
