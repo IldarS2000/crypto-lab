@@ -16,6 +16,7 @@ namespace crypto
         public Form()
         {
             InitializeComponent();
+            Icon = Icon.ExtractAssociatedIcon(System.Reflection.Assembly.GetExecutingAssembly().Location);
         }
 
         UnicodeEncoding ByteConverter = new UnicodeEncoding();
