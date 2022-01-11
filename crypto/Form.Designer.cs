@@ -1,5 +1,4 @@
-﻿
-namespace crypto
+﻿namespace crypto
 {
     partial class Form
     {
@@ -27,6 +26,7 @@ namespace crypto
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
+
         private void InitializeComponent()
         {
             this.txtForEncryption = new System.Windows.Forms.TextBox();
@@ -174,6 +174,7 @@ namespace crypto
             // 
             // encryptFileButton
             // 
+            this.encryptFileButton.AllowDrop = true;
             this.encryptFileButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.encryptFileButton.Location = new System.Drawing.Point(712, 106);
             this.encryptFileButton.Name = "encryptFileButton";
@@ -204,6 +205,7 @@ namespace crypto
             // 
             // Form
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(881, 513);
